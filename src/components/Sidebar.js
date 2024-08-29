@@ -1,24 +1,224 @@
 import React, { useState, useEffect } from "react";
 import { FaChevronDown, FaChevronUp, FaSun, FaMoon } from "react-icons/fa";
 
-const Sidebar = () => {
-  const [open, setOpen] = useState({
-    invest: false,
-    indstocks: false,
-    usStocks: false,
-    etfs: false,
-    features: false,
-    calculators: false,
-    market: false,
-    marketMovers: false,
-    stockCategory: false,
-    disclosure: false,
-  });
+const menuItems = [
+  {
+    section: "invest",
+    label: "Invest",
+    subSections: [
+      {
+        section: "indstocks",
+        label: "INDstocks",
+        links: [
+          { href: "https://www.indmoney.com/stocks", label: "Stocks" },
+          {
+            href: "https://www.indmoney.com/stocks/category/sip-in-stocks",
+            label: "SIP in Stocks",
+          },
+          { href: "https://www.indmoney.com/indices", label: "Indices" },
+          { href: "https://www.indmoney.com/ipo", label: "IPO" },
+          {
+            href: "https://www.indmoney.com/futures-and-options",
+            label: "Futures & Options",
+          },
+        ],
+      },
+      {
+        section: "usStocks",
+        label: "US Stocks",
+        links: [
+          { href: "https://www.indmoney.com/us-stocks", label: "US Stocks" },
+        ],
+      },
+      {
+        section: "etfs",
+        label: "ETFs",
+        links: [
+          {
+            href: "https://www.indmoney.com/us-stocks/top-etfs?heading=Explore+US+Stocks+Categories",
+            label: "Global ETFs",
+          },
+          {
+            href: "https://www.indmoney.com/stocks/category/gold-etfs",
+            label: "Gold ETFs",
+          },
+          { href: "https://www.indmoney.com/stocks/etf", label: "All ETFs" },
+        ],
+      },
+    ],
+  },
+  {
+    section: "features",
+    label: "Features",
+    subSections: [
+      {
+        section: "calculators",
+        label: "Calculators",
+        links: [
+          {
+            href: "https://www.indmoney.com/calculators/sip-calculator",
+            label: "SIP Calculator",
+          },
+          {
+            href: "https://www.indmoney.com/calculators/brokerage-calculator",
+            label: "Brokerage Calculator",
+          },
+          {
+            href: "https://www.indmoney.com/calculators/swp-calculator",
+            label: "SWP Calculator",
+          },
+          {
+            href: "https://www.indmoney.com/calculators/direct-regular-mutual-funds",
+            label: "Regular vs Direct MF Calculator",
+          },
+          {
+            href: "https://www.indmoney.com/calculators/lumpsum-calculator",
+            label: "Lumpsum Calculator",
+          },
+          {
+            href: "https://www.indmoney.com/calculators/gst-calculator",
+            label: "GST Calculator",
+          },
+          {
+            href: "https://www.indmoney.com/calculators/nps-calculator",
+            label: "NPS Calculator",
+          },
+          {
+            href: "https://www.indmoney.com/calculators/post-office-rd-calculator",
+            label: "Post Office RD Calculator",
+          },
+          {
+            href: "https://www.indmoney.com/calculators/salary-calculator",
+            label: "Salary Calculator",
+          },
+          {
+            href: "https://www.indmoney.com/calculators/gratuity-calculator",
+            label: "Gratuity Calculator",
+          },
+          {
+            href: "https://www.indmoney.com/calculators/mutual-funds-returns-calculator",
+            label: "Mutual Fund Returns Calculator",
+          },
+          {
+            href: "https://www.indmoney.com/calculators",
+            label: "View all Calculators",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    section: "market",
+    label: "Market",
+    subSections: [
+      {
+        section: "marketMovers",
+        label: "Market Movers",
+        links: [
+          {
+            href: "https://www.indmoney.com/market",
+            label: "Stock Market Today",
+          },
+          {
+            href: "https://www.indmoney.com/stocks/category/52-week-high",
+            label: "52 Week High",
+          },
+          {
+            href: "https://www.indmoney.com/stocks/category/52-week-low",
+            label: "52 Week Low",
+          },
+          {
+            href: "https://www.indmoney.com/stocks/category/top-gainers",
+            label: "Top Gainers",
+          },
+          {
+            href: "https://www.indmoney.com/stocks/category/top-losers",
+            label: "Top Losers",
+          },
+          {
+            href: "https://www.indmoney.com/stocks/category/only-buyers",
+            label: "Only Buyers",
+          },
+          {
+            href: "https://www.indmoney.com/stocks/category/only-sellers",
+            label: "Only Sellers",
+          },
+        ],
+      },
+      {
+        section: "stockCategory",
+        label: "Stock Category",
+        links: [
+          {
+            href: "https://www.indmoney.com/stocks/category/buy-stocks",
+            label: "Stocks to buy today",
+          },
+          {
+            href: "https://www.indmoney.com/stocks/category/penny-stocks",
+            label: "Penny Stocks",
+          },
+          {
+            href: "https://www.indmoney.com/stocks/category/multibagger-stocks",
+            label: "Multi-bagger Stocks",
+          },
+          {
+            href: "https://www.indmoney.com/stocks/category/nifty-50-stocks",
+            label: "Nifty 50 Stocks",
+          },
+          {
+            href: "https://www.indmoney.com/stocks/category/large-cap-stocks",
+            label: "Large Cap Stocks",
+          },
+          {
+            href: "https://www.indmoney.com/stocks/category/mid-cap-stocks",
+            label: "Mid Cap Stocks",
+          },
+          {
+            href: "https://www.indmoney.com/stocks/category/small-cap-stocks",
+            label: "Small Cap Stocks",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    section: "pricing",
+    label: "Pricing",
+    href: "https://www.indmoney.com/pricing?type=indian-stocks",
+  },
+  {
+    section: "disclosure",
+    label: "Disclosure",
+    subSections: [
+      {
+        links: [
+          {
+            href: "https://www.indmoney.com/complaints-status",
+            label: "Complaint Status",
+          },
+          {
+            href: "https://www.indmoney.com/sebi-investor-charter",
+            label: "SEBI Investor Charter - Investment Advisor",
+          },
+          {
+            href: "https://www.indmoney.com/page/policy-center",
+            label: "More",
+          },
+        ],
+      },
+    ],
+  },
+];
 
+const Sidebar = () => {
+  const [openSections, setOpenSections] = useState({});
   const [darkMode, setDarkMode] = useState(false);
 
-  const toggle = (section) => {
-    setOpen({ ...open, [section]: !open[section] });
+  const toggleSection = (section) => {
+    setOpenSections((prevState) => ({
+      ...prevState,
+      [section]: !prevState[section],
+    }));
   };
 
   const toggleDarkMode = () => {
@@ -32,6 +232,42 @@ const Sidebar = () => {
       document.documentElement.classList.remove("dark");
     }
   }, [darkMode]);
+
+  const renderLinks = (links) =>
+    links.map((link) => (
+      <a key={link.href} href={link.href} className="block py-1 pl-0">
+        {link.label}
+      </a>
+    ));
+
+  const renderMenu = (items) =>
+    items.map((item) => (
+      <div key={item.section}>
+        <button
+          className={`flex justify-between items-center w-full py-2 pl-0 text-left ${
+            darkMode ? "bg-gray-800" : "bg-white"
+          }`}
+          onClick={() => toggleSection(item.section)}
+        >
+          {item.label}
+          {openSections[item.section] ? <FaChevronUp /> : <FaChevronDown />}
+        </button>
+        {openSections[item.section] && (
+          <div>
+            {item.subSections && renderMenu(item.subSections)}
+            {item.links && (
+              <div
+                className={`text-gray-600 ${
+                  darkMode ? "bg-gray-800" : "bg-white"
+                }`}
+              >
+                {renderLinks(item.links)}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    ));
 
   return (
     <div
@@ -47,422 +283,7 @@ const Sidebar = () => {
           {darkMode ? <FaSun /> : <FaMoon />}
         </button>
       </div>
-      <div className="space-y-2">
-        {/* Invest Dropdown */}
-        <div>
-          <button
-            className={`flex justify-between items-center w-full py-2 pl-0 text-left ${
-              darkMode ? "bg-gray-800" : "bg-white"
-            }`}
-            onClick={() => toggle("invest")}
-          >
-            Invest
-            {open.invest ? <FaChevronUp /> : <FaChevronDown />}
-          </button>
-          {open.invest && (
-            <div>
-              <button
-                className={`flex justify-between items-center w-full py-2 pl-0 text-left ${
-                  darkMode ? "bg-gray-700" : "bg-gray-100"
-                }`}
-                onClick={() => toggle("indstocks")}
-              >
-                INDstocks
-                {open.indstocks ? <FaChevronUp /> : <FaChevronDown />}
-              </button>
-              {open.indstocks && (
-                <div
-                  className={`text-gray-600 ${
-                    darkMode ? "bg-gray-800" : "bg-white"
-                  }`}
-                >
-                  <a
-                    href="https://www.indmoney.com/stocks"
-                    className="block py-1 pl-0"
-                  >
-                    Stocks
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/stocks/category/sip-in-stocks"
-                    className="block py-1 pl-0"
-                  >
-                    SIP in Stocks
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/indices"
-                    className="block py-1 pl-0"
-                  >
-                    Indices
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/ipo"
-                    className="block py-1 pl-0"
-                  >
-                    IPO
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/futures-and-options"
-                    className="block py-1 pl-0"
-                  >
-                    Futures & Options
-                  </a>
-                </div>
-              )}
-
-              <button
-                className={`flex justify-between items-center w-full py-2 pl-0 text-left ${
-                  darkMode ? "bg-gray-700" : "bg-gray-100"
-                }`}
-                onClick={() => toggle("usStocks")}
-              >
-                US Stocks
-                {open.usStocks ? <FaChevronUp /> : <FaChevronDown />}
-              </button>
-              {open.usStocks && (
-                <div
-                  className={`text-gray-600 ${
-                    darkMode ? "bg-gray-800" : "bg-white"
-                  }`}
-                >
-                  <a
-                    href="https://www.indmoney.com/us-stocks"
-                    className="block py-1 pl-0"
-                  >
-                    US Stocks
-                  </a>
-                </div>
-              )}
-
-              <button
-                className={`flex justify-between items-center w-full py-2 pl-0 text-left ${
-                  darkMode ? "bg-gray-700" : "bg-gray-100"
-                }`}
-                onClick={() => toggle("etfs")}
-              >
-                ETFs
-                {open.etfs ? <FaChevronUp /> : <FaChevronDown />}
-              </button>
-              {open.etfs && (
-                <div
-                  className={`text-gray-600 ${
-                    darkMode ? "bg-gray-800" : "bg-white"
-                  }`}
-                >
-                  <a
-                    href="https://www.indmoney.com/us-stocks/top-etfs?heading=Explore+US+Stocks+Categories"
-                    className="block py-1 pl-0"
-                  >
-                    Global ETFs
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/stocks/category/gold-etfs"
-                    className="block py-1 pl-0"
-                  >
-                    Gold ETFs
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/stocks/etf"
-                    className="block py-1 pl-0"
-                  >
-                    All ETFs
-                  </a>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-
-        {/* Features Dropdown */}
-        <div>
-          <button
-            className={`flex justify-between items-center w-full py-2 pl-0 text-left ${
-              darkMode ? "bg-gray-800" : "bg-white"
-            }`}
-            onClick={() => toggle("features")}
-          >
-            Features
-            {open.features ? <FaChevronUp /> : <FaChevronDown />}
-          </button>
-          {open.features && (
-            <div>
-              <button
-                className={`flex justify-between items-center w-full py-2 pl-0 text-left ${
-                  darkMode ? "bg-gray-700" : "bg-gray-100"
-                }`}
-                onClick={() => toggle("calculators")}
-              >
-                Calculators
-                {open.calculators ? <FaChevronUp /> : <FaChevronDown />}
-              </button>
-              {open.calculators && (
-                <div
-                  className={`text-gray-600 ${
-                    darkMode ? "bg-gray-800" : "bg-white"
-                  }`}
-                >
-                  <a
-                    href="https://www.indmoney.com/calculators/sip-calculator"
-                    className="block py-1 pl-0"
-                  >
-                    SIP Calculator
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/calculators/brokerage-calculator"
-                    className="block py-1 pl-0"
-                  >
-                    Brokerage Calculator
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/calculators/swp-calculator"
-                    className="block py-1 pl-0"
-                  >
-                    SWP Calculator
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/calculators/direct-regular-mutual-funds"
-                    className="block py-1 pl-0"
-                  >
-                    Regular vs Direct MF Calculator
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/calculators/lumpsum-calculator"
-                    className="block py-1 pl-0"
-                  >
-                    Lumpsum Calculator
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/calculators/gst-calculator"
-                    className="block py-1 pl-0"
-                  >
-                    GST Calculator
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/calculators/nps-calculator"
-                    className="block py-1 pl-0"
-                  >
-                    NPS Calculator
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/calculators/post-office-rd-calculator"
-                    className="block py-1 pl-0"
-                  >
-                    Post Office RD Calculator
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/calculators/salary-calculator"
-                    className="block py-1 pl-0"
-                  >
-                    Salary Calculator
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/calculators/gratuity-calculator"
-                    className="block py-1 pl-0"
-                  >
-                    Gratuity Calculator
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/calculators/mutual-funds-returns-calculator"
-                    className="block py-1 pl-0"
-                  >
-                    Mutual Fund Returns Calculator
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/calculators"
-                    className="block py-1 pl-0"
-                  >
-                    View all Calculators
-                  </a>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-
-        {/* Market Dropdown */}
-        <div>
-          <button
-            className={`flex justify-between items-center w-full py-2 pl-0 text-left ${
-              darkMode ? "bg-gray-800" : "bg-white"
-            }`}
-            onClick={() => toggle("market")}
-          >
-            Market
-            {open.market ? <FaChevronUp /> : <FaChevronDown />}
-          </button>
-          {open.market && (
-            <div>
-              <button
-                className={`flex justify-between items-center w-full py-2 pl-0 text-left ${
-                  darkMode ? "bg-gray-700" : "bg-gray-100"
-                }`}
-                onClick={() => toggle("marketMovers")}
-              >
-                Market Movers
-                {open.marketMovers ? <FaChevronUp /> : <FaChevronDown />}
-              </button>
-              {open.marketMovers && (
-                <div
-                  className={`text-gray-600 ${
-                    darkMode ? "bg-gray-800" : "bg-white"
-                  }`}
-                >
-                  <a
-                    href="https://www.indmoney.com/market"
-                    className="block py-1 pl-0"
-                  >
-                    Stock Market Today
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/stocks/category/52-week-high"
-                    className="block py-1 pl-0"
-                  >
-                    52 Week High
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/stocks/category/52-week-low"
-                    className="block py-1 pl-0"
-                  >
-                    52 Week Low
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/stocks/category/top-gainers"
-                    className="block py-1 pl-0"
-                  >
-                    Top Gainers
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/stocks/category/top-losers"
-                    className="block py-1 pl-0"
-                  >
-                    Top Losers
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/stocks/category/only-buyers"
-                    className="block py-1 pl-0"
-                  >
-                    Only Buyers
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/stocks/category/only-sellers"
-                    className="block py-1 pl-0"
-                  >
-                    Only Sellers
-                  </a>
-                </div>
-              )}
-
-              <button
-                className={`flex justify-between items-center w-full py-2 pl-0 text-left ${
-                  darkMode ? "bg-gray-700" : "bg-gray-100"
-                }`}
-                onClick={() => toggle("stockCategory")}
-              >
-                Stock Category
-                {open.stockCategory ? <FaChevronUp /> : <FaChevronDown />}
-              </button>
-              {open.stockCategory && (
-                <div
-                  className={`text-gray-600 ${
-                    darkMode ? "bg-gray-800" : "bg-white"
-                  }`}
-                >
-                  <a
-                    href="https://www.indmoney.com/stocks/category/buy-stocks"
-                    className="block py-1 pl-0"
-                  >
-                    Stocks to buy today
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/stocks/category/penny-stocks"
-                    className="block py-1 pl-0"
-                  >
-                    Penny Stocks
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/stocks/category/multibagger-stocks"
-                    className="block py-1 pl-0"
-                  >
-                    Multi-bagger Stocks
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/stocks/category/nifty-50-stocks"
-                    className="block py-1 pl-0"
-                  >
-                    Nifty 50 Stocks
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/stocks/category/large-cap-stocks"
-                    className="block py-1 pl-0"
-                  >
-                    Large Cap Stocks
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/stocks/category/mid-cap-stocks"
-                    className="block py-1 pl-0"
-                  >
-                    Mid Cap Stocks
-                  </a>
-                  <a
-                    href="https://www.indmoney.com/stocks/category/small-cap-stocks"
-                    className="block py-1 pl-0"
-                  >
-                    Small Cap Stocks
-                  </a>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-
-        {/* Pricing */}
-        <div>
-          <a
-            href="https://www.indmoney.com/pricing?type=indian-stocks"
-            className="flex justify-between items-center w-full py-2 pl-0 text-left bg-white"
-          >
-            Pricing
-          </a>
-        </div>
-
-        {/* Disclosure Dropdown */}
-        <div>
-          <button
-            className={`flex justify-between items-center w-full py-2 pl-0 text-left ${
-              darkMode ? "bg-gray-800" : "bg-white"
-            }`}
-            onClick={() => toggle("disclosure")}
-          >
-            Disclosure
-            {open.disclosure ? <FaChevronUp /> : <FaChevronDown />}
-          </button>
-          {open.disclosure && (
-            <div
-              className={`text-gray-600 ${
-                darkMode ? "bg-gray-800" : "bg-white"
-              }`}
-            >
-              <a
-                href="https://www.indmoney.com/complaints-status"
-                className="block py-1 pl-0"
-              >
-                Complaint Status
-              </a>
-              <a
-                href="https://www.indmoney.com/sebi-investor-charter"
-                className="block py-1 pl-0"
-              >
-                SEBI Investor Charter - Investment Advisor
-              </a>
-              <a
-                href="https://www.indmoney.com/page/policy-center"
-                className="block py-1 pl-0"
-              >
-                More
-              </a>
-            </div>
-          )}
-        </div>
-      </div>
+      <div className="space-y-2">{renderMenu(menuItems)}</div>
     </div>
   );
 };
