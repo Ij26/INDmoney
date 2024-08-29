@@ -78,31 +78,31 @@ const Sidebar = () => {
                 >
                   <a
                     href="https://www.indmoney.com/stocks"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Stocks
                   </a>
                   <a
                     href="https://www.indmoney.com/stocks/category/sip-in-stocks"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     SIP in Stocks
                   </a>
                   <a
                     href="https://www.indmoney.com/indices"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Indices
                   </a>
                   <a
                     href="https://www.indmoney.com/ipo"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     IPO
                   </a>
                   <a
                     href="https://www.indmoney.com/futures-and-options"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Futures & Options
                   </a>
@@ -126,7 +126,7 @@ const Sidebar = () => {
                 >
                   <a
                     href="https://www.indmoney.com/us-stocks"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     US Stocks
                   </a>
@@ -150,19 +150,19 @@ const Sidebar = () => {
                 >
                   <a
                     href="https://www.indmoney.com/us-stocks/top-etfs?heading=Explore+US+Stocks+Categories"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Global ETFs
                   </a>
                   <a
                     href="https://www.indmoney.com/stocks/category/gold-etfs"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Gold ETFs
                   </a>
                   <a
                     href="https://www.indmoney.com/stocks/etf"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     All ETFs
                   </a>
@@ -202,73 +202,73 @@ const Sidebar = () => {
                 >
                   <a
                     href="https://www.indmoney.com/calculators/sip-calculator"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     SIP Calculator
                   </a>
                   <a
                     href="https://www.indmoney.com/calculators/brokerage-calculator"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Brokerage Calculator
                   </a>
                   <a
                     href="https://www.indmoney.com/calculators/swp-calculator"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     SWP Calculator
                   </a>
                   <a
                     href="https://www.indmoney.com/calculators/direct-regular-mutual-funds"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Regular vs Direct MF Calculator
                   </a>
                   <a
                     href="https://www.indmoney.com/calculators/lumpsum-calculator"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Lumpsum Calculator
                   </a>
                   <a
                     href="https://www.indmoney.com/calculators/gst-calculator"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     GST Calculator
                   </a>
                   <a
                     href="https://www.indmoney.com/calculators/nps-calculator"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     NPS Calculator
                   </a>
                   <a
                     href="https://www.indmoney.com/calculators/post-office-rd-calculator"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Post Office RD Calculator
                   </a>
                   <a
                     href="https://www.indmoney.com/calculators/salary-calculator"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Salary Calculator
                   </a>
                   <a
                     href="https://www.indmoney.com/calculators/gratuity-calculator"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Gratuity Calculator
                   </a>
                   <a
                     href="https://www.indmoney.com/calculators/mutual-funds-returns-calculator"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Mutual Fund Returns Calculator
                   </a>
                   <a
                     href="https://www.indmoney.com/calculators"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     View all Calculators
                   </a>
@@ -308,43 +308,43 @@ const Sidebar = () => {
                 >
                   <a
                     href="https://www.indmoney.com/market"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Stock Market Today
                   </a>
                   <a
                     href="https://www.indmoney.com/stocks/category/52-week-high"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     52 Week High
                   </a>
                   <a
                     href="https://www.indmoney.com/stocks/category/52-week-low"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     52 Week Low
                   </a>
                   <a
                     href="https://www.indmoney.com/stocks/category/top-gainers"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Top Gainers
                   </a>
                   <a
                     href="https://www.indmoney.com/stocks/category/top-losers"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Top Losers
                   </a>
                   <a
                     href="https://www.indmoney.com/stocks/category/only-buyers"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Only Buyers
                   </a>
                   <a
                     href="https://www.indmoney.com/stocks/category/only-sellers"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Only Sellers
                   </a>
@@ -368,43 +368,43 @@ const Sidebar = () => {
                 >
                   <a
                     href="https://www.indmoney.com/stocks/category/buy-stocks"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Stocks to buy today
                   </a>
                   <a
                     href="https://www.indmoney.com/stocks/category/penny-stocks"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Penny Stocks
                   </a>
                   <a
                     href="https://www.indmoney.com/stocks/category/multibagger-stocks"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Multi-bagger Stocks
                   </a>
                   <a
                     href="https://www.indmoney.com/stocks/category/nifty-50-stocks"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Nifty 50 Stocks
                   </a>
                   <a
                     href="https://www.indmoney.com/stocks/category/large-cap-stocks"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Large Cap Stocks
                   </a>
                   <a
                     href="https://www.indmoney.com/stocks/category/mid-cap-stocks"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Mid Cap Stocks
                   </a>
                   <a
                     href="https://www.indmoney.com/stocks/category/small-cap-stocks"
-                    className="block py-1 pl-4"
+                    className="block py-1 pl-0"
                   >
                     Small Cap Stocks
                   </a>
@@ -443,19 +443,19 @@ const Sidebar = () => {
             >
               <a
                 href="https://www.indmoney.com/complaints-status"
-                className="block py-1 pl-4"
+                className="block py-1 pl-0"
               >
                 Complaint Status
               </a>
               <a
                 href="https://www.indmoney.com/sebi-investor-charter"
-                className="block py-1 pl-4"
+                className="block py-1 pl-0"
               >
                 SEBI Investor Charter - Investment Advisor
               </a>
               <a
                 href="https://www.indmoney.com/page/policy-center"
-                className="block py-1 pl-4"
+                className="block py-1 pl-0"
               >
                 More
               </a>
